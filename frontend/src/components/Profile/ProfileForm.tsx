@@ -1,7 +1,9 @@
 // components/ProfileForm.tsx
 import React from "react";
-import { TextField, Grid, Typography, Divider, Paper } from "@mui/material";
+import { Typography, Divider, Paper } from "@mui/material";
 import type { IProfileForm } from "../../common/types/Profile";
+import Grid from '@mui/material/Grid';
+import TextField from '@mui/material/TextField';
 
 interface Props {
   profile: IProfileForm;
@@ -17,7 +19,7 @@ const ProfileForm: React.FC<Props> = ({ profile, onChange, readOnly }) => {
       </Typography>
 
       <Grid container spacing={2}>
-        <Grid item={true} xs={12} md={6}>
+        <Grid >
           <TextField
             label="Name"
             value={profile.name}
@@ -27,7 +29,7 @@ const ProfileForm: React.FC<Props> = ({ profile, onChange, readOnly }) => {
           />
         </Grid>
 
-        <Grid item xs={12} md={6}>
+        <Grid>
           <TextField
             label="Email"
             value={profile.email}
@@ -38,7 +40,7 @@ const ProfileForm: React.FC<Props> = ({ profile, onChange, readOnly }) => {
           />
         </Grid>
 
-        <Grid item xs={12} md={6}>
+        <Grid>
           <TextField
             label="Risk Score"
             type="number"
@@ -52,7 +54,7 @@ const ProfileForm: React.FC<Props> = ({ profile, onChange, readOnly }) => {
           />
         </Grid>
 
-        <Grid item xs={12} md={6}>
+        <Grid>
           <TextField
             label="Joined At"
             type="date"

@@ -6,6 +6,7 @@ import { Box, Button, Container, Stack, Typography } from "@mui/material";
 import { ROUTES } from "../../common/constants";
 
 const defaultProfile: IProfileForm = {
+  id: "",
   name: "",
   email: "",
   riskScore: 50,
@@ -53,29 +54,18 @@ const ProfilePage = () => {
   return (
     <Container maxWidth="md" sx={{ py: 4 }}>
       <Typography variant="h4" gutterBottom>
-        {isNew ? 'Create New Profile' : `Profile: ${profile.name}`}
+        {isNew ? "Create New Profile" : `Profile: ${profile.name}`}
       </Typography>
 
-      <ProfileForm
-        profile={profile}
-        onChange={setProfile}
-        readOnly={false}
-      />
+      <ProfileForm profile={profile} onChange={setProfile} readOnly={false} />
 
       <Box mt={4}>
         <Stack direction="row" spacing={2}>
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={handleSave}
-          >
-            {isNew ? 'Create' : 'Update'}
+          <Button variant="contained" color="primary" onClick={handleSave}>
+            {isNew ? "Create" : "Update"}
           </Button>
 
-          <Button
-            variant="outlined"
-            onClick={() => navigate(ROUTES.PROFILE)}
-          >
+          <Button variant="outlined" onClick={() => navigate(ROUTES.PROFILE)}>
             Cancel
           </Button>
         </Stack>
