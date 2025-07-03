@@ -1,6 +1,7 @@
 # Finsight Dashboard
 
 A modern, scalable dashboard application built with React, TypeScript, Material UI, Node.js, and Firebase.
+![App Screenshot](./assets/Dashboard.png)
 
 ## Overview
 

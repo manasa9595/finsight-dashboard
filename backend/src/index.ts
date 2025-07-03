@@ -2,9 +2,9 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 
-import pendingActions from "./src/routes/pendingActions";
-import profiles from "./src/routes/profiles";
-import insightsChart from "./src/routes/insightsChart";
+import pendingActions from "./routes/pendingActions";
+import profiles from "./routes/profiles";
+import insightsChart from "./routes/insightsChart";
 
 dotenv.config();
 const app = express();
