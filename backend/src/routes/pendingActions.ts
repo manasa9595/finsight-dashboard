@@ -1,7 +1,7 @@
-import express from "express";
+import { Router } from "express";
 import { fetchPaginatedData } from "../utils/paginatedTable";
 
-const router = express.Router();
+const router = Router();
 
 router.get("/", async (req, res) => {
   try {
@@ -21,9 +21,9 @@ router.get("/", async (req, res) => {
     });
 
     res.json(result);
-  } catch (error) {
-    console.error("Error fetching pending actions:", error);
-    res.status(500).json({ error: "Failed to fetch pending actions" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
 

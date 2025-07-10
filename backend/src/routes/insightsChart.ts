@@ -1,8 +1,3 @@
-import express from "express";
-import { db } from "../firebase";
-
-const router = express.Router();
-
 // Endpoint to fetch radar chart data
 // Sample data structure for radar chart
 // {
@@ -17,9 +12,13 @@ const router = express.Router();
 //   "values": [72, 31450, 86, 92, 8, 73]
 // }
 
+import { Router } from "express";
+import { db } from "../firebase";
+
+const router = Router();
+
 router.get("/chart", async (req, res) => {
   try {
-    // Aggregate example values - customize based on actual data
     const profilesSnapshot = await db.collection("profiles").get();
     const totalProfiles = profilesSnapshot.size;
 
@@ -35,7 +34,6 @@ router.get("/chart", async (req, res) => {
 
       riskSum += p.riskScore || 0;
       transactionVolume += p.totalTransactionAmount || 0;
-
       if (p.kycStatus === "Completed") kycComplete++;
       if (p.profileCompleted) profileComplete++;
       if (p.flagged) flagged++;
@@ -54,7 +52,7 @@ router.get("/chart", async (req, res) => {
     const flaggedPercent = Math.round((flagged / totalProfiles) * 100);
     const activePercent = Math.round((active / totalProfiles) * 100);
 
-    res.json({
+    res.status(200).json({
       labels: [
         "Risk Score",
         "Transaction Volume",
