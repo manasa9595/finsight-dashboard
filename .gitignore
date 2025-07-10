@@ -70,3 +70,4 @@ node_modules/
 backend/serviceAccountKey.json
 backend/package-lock.json
 .vercel
+package-lock.json

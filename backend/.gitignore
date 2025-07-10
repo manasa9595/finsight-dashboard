@@ -26,3 +26,4 @@ package-lock.json
 
 serviceAccountKey.json
 .vercel
+addDummyData
