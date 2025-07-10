@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     {
-      "src": "backend/src/api/**/*.ts",
+      "src": "backend/src/lambda.ts",
       "use": "@vercel/node"
     },
     {
@@ -14,11 +14,18 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "backend/src/api/$1.ts"
+      "dest": "backend/src/lambda.ts"
     },
     {
       "src": "/(.*)",
       "dest": "frontend/$1"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "frontend/index.html"
     }
   ]
 }

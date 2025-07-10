@@ -1,13 +1,14 @@
 import express from "express";
-import pendingActions from "./routes/pendingActions";
-import insightsChart from "./routes/insightsChart";
-import profiles from "./routes/profiles";
+import profilesRouter from "./routes/profiles";
+import insightsRouter from "./routes/insightsChart";
+import pendingActionsRouter from "./routes/pendingActions";
 
 const app = express();
-
 app.use(express.json());
-app.use("/", pendingActions);
-app.use("/", profiles);
-app.use("/", insightsChart);
+
+// Routes
+app.use("/api/profiles", profilesRouter);
+app.use("/api/insights", insightsRouter);
+app.use("/api/pending-actions", pendingActionsRouter);
 
 export default app;
