@@ -28,7 +28,7 @@ export default function ProfileList() {
       </Box>
 
       <PaginatedTable<IProfileForm>
-        endpoint="http://localhost:5050/api/profiles"
+        endpoint="api/profiles"
         defaultSortBy="joinedAt"
         defaultSortOrder="desc"
         rowsPerPageOptions={[5, 10, 25, 50]}

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Box, Paper, Typography } from "@mui/material";
 import ApexChart from "react-apexcharts";
 import type { ApexOptions } from "apexcharts";
+import { fetchClient } from "../../common/api/fetchClient";
 
 export default function Insights() {
   const [categories, setCategories] = useState<string[]>([]);
@@ -11,7 +12,7 @@ export default function Insights() {
     // Simulated data for the radar chart
     // fetching from an API would be done here
     // For example:
-    fetch("http://localhost:5050/api/insights/chart")
+    fetchClient("api/insights/chart")
       .then((response) => response.json())
       .then((data) => {
         setCategories(data.labels);

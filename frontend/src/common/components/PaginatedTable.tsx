@@ -12,6 +12,7 @@ import {
   Box,
 } from "@mui/material";
 import Loader from "./Loader";
+import { fetchClient } from "../api/fetchClient";
 
 export interface PaginatedTableProps<T> {
   endpoint: string;
@@ -49,7 +50,7 @@ function PaginatedTable<T extends { id: string }>({
     async function fetchData() {
       setLoading(true);
       try {
-        const response = await fetch(
+        const response = await fetchClient(
           `${endpoint}?page=${page + 1}&limit=${rowsPerPage}&sortBy=${sortBy}&sortOrder=${sortOrder}`
         );
         if (!response.ok) throw new Error(`Error: ${response.statusText}`);

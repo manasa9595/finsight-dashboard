@@ -16,7 +16,7 @@ interface PendingAction {
 export default function PendingActionsPage() {
   return (
     <PaginatedTable<PendingAction>
-      endpoint="http://localhost:5050/api/pending-actions"
+      endpoint="api/pending-actions"
       defaultSortBy="date"
       columns={[
         { key: "customer", label: "Customer", sortable: true },
